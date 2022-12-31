@@ -2,6 +2,15 @@ import { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import Item from "../components/Item";
 
+type StoreItem = {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+};
+
 export default function Shop() {
   const [items, setItems] = useState([]);
   const fetchItems = async () => {
@@ -19,7 +28,7 @@ export default function Shop() {
     <>
       <h2>Shop</h2>
       <Row className="g-3">
-        {items.map((item) => (
+        {items.map((item: StoreItem) => (
           <Col key={item.id}>
             <Item {...item} />
           </Col>
