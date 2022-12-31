@@ -2,7 +2,7 @@ import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
 
 export default function Item({ ...item }) {
-  let quantity = 0;
+  let quantity = 1;
   return (
     <Card className="d-flex align-items-center justify-content-center h-100">
       <Card.Img
@@ -15,7 +15,7 @@ export default function Item({ ...item }) {
           padding: "10px",
         }}
       />
-      <Card.Body className="d-flex flex-column">
+      <Card.Body className="d-flex flex-column w-100">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-5">{item.title}</span>
           <span className="ms-2 text-muted">{formatCurrency(item.price)}</span>
@@ -23,7 +23,22 @@ export default function Item({ ...item }) {
         <div className="mt-auto">
           {quantity === 0 ? (
             <Button className="w-100">+ Add to Cart</Button>
-          ) : null}
+          ) : (
+            <div
+              className="d-flex align-items-center flex-column"
+              style={{ gap: ".5rem" }}
+            >
+              <div
+                className="d-flex align-items-center justify-content-center"
+                style={{ gap: ".5rem" }}
+              >
+                <Button>-</Button>
+                <div className="fs-3">{quantity}</div>
+                <Button>+</Button>
+              </div>
+              <Button className="btn-danger">Remove</Button>
+            </div>
+          )}
         </div>
       </Card.Body>
     </Card>
