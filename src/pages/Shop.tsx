@@ -27,7 +27,7 @@ export default function Shop() {
   return (
     <>
       <h2>Shop</h2>
-      <Row className="g-3">
+      <Row className="g-3" xs={1} md={2} lg={3}>
         {items.map((item: StoreItem) => (
           <Col key={item.id}>
             <Item {...item} />
