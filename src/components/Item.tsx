@@ -5,7 +5,7 @@ import { StoreItem } from "../pages/Shop";
 export default function Item({ ...item }: StoreItem) {
   let quantity = 1;
   return (
-    <Card className="d-flex align-items-center justify-content-center h-100">
+    <Card className="shadow d-flex align-items-center justify-content-center h-100">
       <Card.Img
         variant="top"
         src={item.image}
