@@ -35,11 +35,27 @@ export default function Item({ ...item }: StoreItem) {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button>-</Button>
-                <div className="fs-3">{quantity}</div>
-                <Button>+</Button>
+                <Button
+                  variant="outline-primary"
+                  className="rounded-circle"
+                  style={{ width: "35px", height: "35px" }}
+                >
+                  <strong>-</strong>
+                </Button>
+                <div>
+                  <span className="fs-3">{quantity}</span> in cart
+                </div>
+                <Button
+                  variant="outline-primary"
+                  className="rounded-circle"
+                  style={{ width: "35px", height: "35px" }}
+                >
+                  <strong>+</strong>
+                </Button>
               </div>
-              <Button className="btn-danger">Remove</Button>
+              <Button variant="danger" size="sm">
+                Remove
+              </Button>
             </div>
           )}
         </div>
