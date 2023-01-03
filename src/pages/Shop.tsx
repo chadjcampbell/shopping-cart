@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import Item from "../components/Item";
 
-type StoreItem = {
+export type StoreItem = {
   id: number;
   title: string;
   price: string;

@@ -1,7 +1,8 @@
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
+import { StoreItem } from "../pages/Shop";
 
-export default function Item({ ...item }) {
+export default function Item({ ...item }: StoreItem) {
   let quantity = 1;
   return (
     <Card className="d-flex align-items-center justify-content-center h-100">
@@ -18,7 +19,9 @@ export default function Item({ ...item }) {
       <Card.Body className="d-flex flex-column w-100">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-5">{item.title}</span>
-          <span className="ms-2 text-muted">{formatCurrency(item.price)}</span>
+          <span className="ms-2 text-muted">
+            {formatCurrency(parseInt(item.price))}
+          </span>
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
