@@ -7,7 +7,15 @@ type CartItemProps = {
 };
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeItem } = useCart();
+  const { removeItem, items } = useCart();
+  const item = items.find((item) => item.id === id);
 
-  return <Stack>Hi</Stack>;
+  return (
+    <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+      <img
+        src={item?.image}
+        style={{ width: "125px", height: "75px", objectFit: "fill" }}
+      />
+    </Stack>
+  );
 }
