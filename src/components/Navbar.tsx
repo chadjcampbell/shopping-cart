@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
-  const { cartQuantity } = useCart();
+  const { cartQuantity, openCart } = useCart();
   return (
     <NavbarBS sticky="top" bg="light" variant="light">
       <Container className="me-auto">
@@ -25,6 +25,7 @@ export default function Navbar() {
         </Nav>
       </Container>
       <Button
+        onClick={openCart}
         style={{ width: "3rem", height: "3rem", position: "relative" }}
         className="rounded-circle me-3"
         variant="outline-primary"
