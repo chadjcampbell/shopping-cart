@@ -1,9 +1,12 @@
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { StoreItem } from "../pages/Shop";
+import { useCart } from "../context/CartContext";
 
 export default function Item({ ...item }: StoreItem) {
-  let quantity = 1;
+  const { getQuantity, increaseQuantity, decreaseQuantity, removeItem } =
+    useCart();
+  const quantity = getQuantity(item.id);
   return (
     <Card className="shadow d-flex align-items-center justify-content-center h-100">
       <Card.Img
@@ -25,7 +28,9 @@ export default function Item({ ...item }: StoreItem) {
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button className="w-100">+ Add to Cart</Button>
+            <Button className="w-100" onClick={() => increaseQuantity(item.id)}>
+              + Add to Cart
+            </Button>
           ) : (
             <div
               className="d-flex align-items-center flex-column"
@@ -36,6 +41,7 @@ export default function Item({ ...item }: StoreItem) {
                 style={{ gap: ".5rem" }}
               >
                 <Button
+                  onClick={() => decreaseQuantity(item.id)}
                   variant="outline-primary"
                   className="rounded-circle"
                   style={{ width: "35px", height: "35px" }}
@@ -46,6 +52,7 @@ export default function Item({ ...item }: StoreItem) {
                   <span className="fs-3">{quantity}</span> in cart
                 </div>
                 <Button
+                  onClick={() => increaseQuantity(item.id)}
                   variant="outline-primary"
                   className="rounded-circle"
                   style={{ width: "35px", height: "35px" }}
@@ -53,7 +60,11 @@ export default function Item({ ...item }: StoreItem) {
                   <strong>+</strong>
                 </Button>
               </div>
-              <Button variant="danger" size="sm">
+              <Button
+                onClick={() => removeItem(item.id)}
+                variant="danger"
+                size="sm"
+              >
                 Remove
               </Button>
             </div>
