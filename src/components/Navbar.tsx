@@ -2,8 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { Navbar as NavbarBS, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
+  const { cartQuantity } = useCart();
   return (
     <NavbarBS sticky="top" bg="light" variant="light">
       <Container className="me-auto">
@@ -46,7 +48,7 @@ export default function Navbar() {
             transform: "translate(25%,25%)",
           }}
         >
-          3
+          {cartQuantity}
         </div>
       </Button>
     </NavbarBS>

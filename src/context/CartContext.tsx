@@ -5,10 +5,14 @@ type CartProviderProps = {
 };
 
 type CartContext = {
+  openCart: () => void;
+  closeCart: () => void;
   getQuantity: (id: number) => number;
   increaseQuantity: (id: number) => void;
   decreaseQuantity: (id: number) => void;
   removeItem: (id: number) => void;
+  cartQuantity: number;
+  cartItems: CartItem[];
 };
 
 type CartItem = {
@@ -67,9 +71,21 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   }
 
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  );
+
   return (
     <CartContext.Provider
-      value={{ getQuantity, increaseQuantity, decreaseQuantity, removeItem }}
+      value={{
+        getQuantity,
+        increaseQuantity,
+        decreaseQuantity,
+        removeItem,
+        cartItems,
+        cartQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
