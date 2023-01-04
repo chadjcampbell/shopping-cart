@@ -23,7 +23,7 @@ export default function Item({ ...item }: StoreItem) {
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-5">{item.title}</span>
           <span className="ms-2 text-muted">
-            {formatCurrency(parseInt(item.price))}
+            {formatCurrency(parseFloat(item.price))}
           </span>
         </Card.Title>
         <div className="mt-auto">
