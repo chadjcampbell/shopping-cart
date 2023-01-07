@@ -17,11 +17,13 @@ export default function App() {
   }, []);
 
   return (
-    <CartProvider items={items}>
-      <Navbar />
-      <Container className="mb-4">
-        <Outlet />
-      </Container>
-    </CartProvider>
+    <div className="min-vh-100">
+      <CartProvider items={items}>
+        <Navbar />
+        <Container className="mb-4 h-100">
+          <Outlet />
+        </Container>
+      </CartProvider>
+    </div>
   );
 }
