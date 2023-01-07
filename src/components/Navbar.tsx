@@ -10,12 +10,11 @@ export default function Navbar() {
     <NavbarBS sticky="top" bg="light" variant="light">
       <Container className="me-auto">
         <LinkContainer to="/home">
-          <NavbarBS.Brand>Sweet Dealz</NavbarBS.Brand>
+          <NavbarBS.Brand>
+            <span style={{ color: "pink" }}>Sweet</span> Dealz
+          </NavbarBS.Brand>
         </LinkContainer>
         <Nav className="me-auto">
-          <LinkContainer to="/home">
-            <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
           <LinkContainer to="/shop">
             <Nav.Link>Shop</Nav.Link>
           </LinkContainer>
