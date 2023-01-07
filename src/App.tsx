@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Container from "react-bootstrap/Container";
 import { CartProvider } from "./context/CartContext";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -20,9 +21,10 @@ export default function App() {
     <div className="min-vh-100">
       <CartProvider items={items}>
         <Navbar />
-        <Container className="mb-4 h-100">
+        <Container className="mb-4 h-auto">
           <Outlet />
         </Container>
+        <Footer />
       </CartProvider>
     </div>
   );

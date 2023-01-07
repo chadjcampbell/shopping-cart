@@ -15,7 +15,7 @@ export default function Shop() {
   const { items } = useCart();
   if (items.length) {
     return (
-      <>
+      <Container className="pb-5">
         <h2>Shop</h2>
         <Row className="g-3" xs={1} md={2} lg={3}>
           {items.map((item: StoreItem) => (
@@ -24,7 +24,7 @@ export default function Shop() {
             </Col>
           ))}
         </Row>
-      </>
+      </Container>
     );
   } else {
     return (
