@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import localforage from "localforage";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { StoreItem } from "../pages/Shop";
 
@@ -33,6 +40,18 @@ export function useCart() {
 export function CartProvider({ children, items }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    localforage.getItem("SDcart").then((value) => {
+      if (value !== null) {
+        setCartItems(value);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    localforage.setItem("SDcart", cartItems);
+  });
 
   function getQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
