@@ -42,7 +42,7 @@ export function CartProvider({ children, items }: CartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    localforage.getItem("SDcart").then((value) => {
+    localforage.getItem("SDcart").then((value: any) => {
       if (value !== null) {
         setCartItems(value);
       }
