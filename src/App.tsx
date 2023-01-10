@@ -17,7 +17,12 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-vh-100">
+    <div
+      className="min-vh-100"
+      style={{
+        backgroundImage: 'url("../public/cupcakes.jpg")',
+      }}
+    >
       <CartProvider items={items}>
         <Navbar />
         <Container className="mb-4 h-auto">

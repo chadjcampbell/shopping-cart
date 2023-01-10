@@ -11,7 +11,7 @@ export default function Navbar() {
       <Container className="me-auto">
         <LinkContainer to="/home">
           <NavbarBS.Brand>
-            <span style={{ color: "pink" }}>Sweet</span> Dealz
+            <span style={{ color: "rgb(204, 0, 82)" }}>Sweet</span> Dealz
           </NavbarBS.Brand>
         </LinkContainer>
         <Nav className="me-auto">
