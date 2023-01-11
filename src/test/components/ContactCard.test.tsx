@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { ContactCard } from "../../components/ContactCard";
 
 beforeEach(() => {
-  const contact = render(<ContactCard />);
+  render(<ContactCard />);
 });
 
 describe("Contact card", () => {
