@@ -35,6 +35,7 @@ export default function Item({ ...item }: StoreItem) {
           <div className="mt-auto">
             {quantity === 0 ? (
               <Button
+                role="add-to-cart"
                 className="w-100"
                 onClick={() => increaseQuantity(item.id)}
               >
@@ -58,7 +59,10 @@ export default function Item({ ...item }: StoreItem) {
                     <strong>-</strong>
                   </Button>
                   <div>
-                    <span className="fs-3">{quantity}</span> in cart
+                    <span role="quantity" className="fs-3">
+                      {quantity}
+                    </span>{" "}
+                    in cart
                   </div>
                   <Button
                     onClick={() => increaseQuantity(item.id)}
