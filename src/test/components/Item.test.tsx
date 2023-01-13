@@ -31,9 +31,15 @@ describe("Cart item", () => {
       </CartProvider>
     );
     const button = screen.getByRole("add-to-cart");
-    userEvent.click(button);
-    //TODO fix this await, needs to rerender
-    const quantity = await screen.getByRole("quantity");
-    expect(quantity.textContent === "0");
+    await userEvent.click(button);
+    await waitFor(() =>
+      render(
+        <CartProvider items={testItems}>
+          <Item {...testItems[0]} />
+        </CartProvider>
+      )
+    );
+    const quantity = screen.getByRole("quantity");
+    expect(quantity.textContent).toBe("1 in cart");
   });
 });

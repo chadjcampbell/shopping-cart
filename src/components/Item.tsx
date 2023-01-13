@@ -58,11 +58,8 @@ export default function Item({ ...item }: StoreItem) {
                   >
                     <strong>-</strong>
                   </Button>
-                  <div>
-                    <span role="quantity" className="fs-3">
-                      {quantity}
-                    </span>{" "}
-                    in cart
+                  <div role="quantity">
+                    <span className="fs-3">{quantity}</span> in cart
                   </div>
                   <Button
                     onClick={() => increaseQuantity(item.id)}
