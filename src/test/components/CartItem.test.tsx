@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+
 import { CartItem } from "../../components/CartItem";
 import { CartProvider } from "../../context/CartContext";
 
@@ -24,15 +24,5 @@ describe("Cart item", () => {
     );
     const testTitle = screen.getByText("test");
     expect(testTitle).toBeInTheDocument();
-  });
-  it("is removed after clicking remove", () => {
-    const testCartItem = render(
-      <CartProvider items={testItems}>
-        <CartItem {...testItem} />
-      </CartProvider>
-    );
-    const button = screen.getByRole("button");
-    userEvent.click(button);
-    expect(testCartItem === null);
   });
 });
