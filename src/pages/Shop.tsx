@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Item from "../components/Item";
+import { ItemModal } from "../components/ItemModal";
 import { useCart } from "../context/CartContext";
 
 export type StoreItem = {
@@ -13,9 +15,16 @@ export type StoreItem = {
 
 export default function Shop() {
   const { items } = useCart();
+  const [showModal, setShowModal] = useState(true);
+  let modal;
+  showModal
+    ? (modal = <ItemModal showModal={showModal} setShowModal={setShowModal} />)
+    : (modal = <></>);
+
   if (items.length) {
     return (
       <Container className="pb-5">
+        {modal}
         <h2>Shop</h2>
         <Row className="g-3" xs={1} md={2} lg={3}>
           {items.map((item: StoreItem) => (

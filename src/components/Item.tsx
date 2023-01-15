@@ -16,7 +16,7 @@ export default function Item({ ...item }: StoreItem) {
     >
       <Card className="shadow d-flex align-items-center justify-content-center h-100">
         <Card.Header className="w-100 text-end" as="h5">
-          More Info
+          <Button variant="info">More Info</Button>
         </Card.Header>
         <Card.Img
           variant="top"
