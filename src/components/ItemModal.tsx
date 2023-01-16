@@ -1,26 +1,25 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { StoreItem } from "../pages/Shop";
 
 type modalProps = {
+  item: StoreItem;
   showModal: boolean;
-  setShowModal: (argo0: boolean) => void;
+  setShowModal: (arg0: boolean) => void;
 };
 
-export function ItemModal({ showModal, setShowModal }: modalProps) {
+export function ItemModal({ item, showModal, setShowModal }: modalProps) {
   const handleClose = () => setShowModal(false);
 
   return (
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>{item.title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Body>{item.description}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
         </Button>
       </Modal.Footer>
     </Modal>

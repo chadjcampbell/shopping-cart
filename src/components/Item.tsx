@@ -16,7 +16,7 @@ export default function Item({ handleOpen, ...item }: StoreItem) {
     >
       <Card className="shadow d-flex align-items-center justify-content-center h-100">
         <Card.Header className="w-100 text-end" as="h5">
-          <Button variant="info" onClick={handleOpen}>
+          <Button variant="info" onClick={() => handleOpen(item.id)}>
             More Info
           </Button>
         </Card.Header>

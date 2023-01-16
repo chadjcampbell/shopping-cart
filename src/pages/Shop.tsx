@@ -11,16 +11,27 @@ export type StoreItem = {
   category: string;
   description: string;
   image: string;
-  handleOpen: () => void;
+  handleOpen: (id: number) => void;
 };
 
 export default function Shop() {
   const { items } = useCart();
   const [showModal, setShowModal] = useState(false);
-  const handleOpen = () => setShowModal(true);
+  const [modalData, setModalData] = useState({});
+  const handleOpen = (id: number) => {
+    const itemInfo = items.find((item) => item.id === id);
+    setModalData(itemInfo);
+    setShowModal(true);
+  };
   let modal;
   showModal
-    ? (modal = <ItemModal showModal={showModal} setShowModal={setShowModal} />)
+    ? (modal = (
+        <ItemModal
+          item={modalData}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      ))
     : (modal = <></>);
 
   if (items.length) {
