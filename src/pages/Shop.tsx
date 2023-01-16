@@ -11,11 +11,13 @@ export type StoreItem = {
   category: string;
   description: string;
   image: string;
+  handleOpen: () => void;
 };
 
 export default function Shop() {
   const { items } = useCart();
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const handleOpen = () => setShowModal(true);
   let modal;
   showModal
     ? (modal = <ItemModal showModal={showModal} setShowModal={setShowModal} />)
@@ -29,7 +31,7 @@ export default function Shop() {
         <Row className="g-3" xs={1} md={2} lg={3}>
           {items.map((item: StoreItem) => (
             <Col key={item.id}>
-              <Item {...item} />
+              <Item {...item} handleOpen={handleOpen} />
             </Col>
           ))}
         </Row>
