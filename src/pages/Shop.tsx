@@ -11,13 +11,12 @@ export type StoreItem = {
   category: string;
   description: string;
   image: string;
-  handleOpen: (id: number) => void;
 };
 
 export default function Shop() {
   const { items } = useCart();
   const [showModal, setShowModal] = useState(false);
-  const [modalData, setModalData] = useState({});
+  const [modalData, setModalData] = useState<StoreItem>();
   const handleOpen = (id: number) => {
     const itemInfo = items.find((item) => item.id === id);
     setModalData(itemInfo);

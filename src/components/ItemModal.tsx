@@ -4,16 +4,16 @@ import Modal from "react-bootstrap/Modal";
 import { StoreItem } from "../pages/Shop";
 import AddToCartArea from "./AddToCartArea";
 
-type modalProps = {
-  item: StoreItem;
+type ModalProps = {
+  item: StoreItem | undefined;
   showModal: boolean;
   setShowModal: (arg0: boolean) => void;
 };
 
-export function ItemModal({ item, showModal, setShowModal }: modalProps) {
+export function ItemModal({ item, showModal, setShowModal }: ModalProps) {
   const handleClose = () => setShowModal(false);
 
-  return (
+  return item ? (
     <Modal size="lg" centered show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>{item.title}</Modal.Title>
@@ -43,5 +43,7 @@ export function ItemModal({ item, showModal, setShowModal }: modalProps) {
         </Button>
       </Modal.Footer>
     </Modal>
+  ) : (
+    <></>
   );
 }

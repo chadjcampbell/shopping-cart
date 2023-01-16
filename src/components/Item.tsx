@@ -4,7 +4,17 @@ import { StoreItem } from "../pages/Shop";
 import { motion } from "framer-motion";
 import AddToCartArea from "./AddToCartArea";
 
-export default function Item({ handleOpen, ...item }: StoreItem) {
+type ItemProps = {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+  handleOpen: (id: number) => void;
+};
+
+export default function Item({ handleOpen, ...item }: ItemProps) {
   return (
     <motion.div
       initial={{ opacity: 0.7, scale: 0.7 }}
