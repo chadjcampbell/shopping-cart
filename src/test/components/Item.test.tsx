@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Item from "../../components/Item";
 import { CartProvider } from "../../context/CartContext";
+import { vi } from "vitest";
 
 const testItems = [
   {
@@ -14,11 +15,13 @@ const testItems = [
   },
 ];
 
+const handleOpen = vi.fn();
+
 describe("Cart item", () => {
   it("renders an item title", () => {
     render(
       <CartProvider items={testItems}>
-        <Item {...testItems[0]} />
+        <Item handleOpen={handleOpen} {...testItems[0]} />
       </CartProvider>
     );
     const testTitle = screen.getByText("test");
@@ -27,7 +30,7 @@ describe("Cart item", () => {
   it("renders quantity after adding to cart", async () => {
     render(
       <CartProvider items={testItems}>
-        <Item {...testItems[0]} />
+        <Item handleOpen={handleOpen} {...testItems[0]} />
       </CartProvider>
     );
     const button = screen.getByRole("add-to-cart");
@@ -35,7 +38,7 @@ describe("Cart item", () => {
     await waitFor(() =>
       render(
         <CartProvider items={testItems}>
-          <Item {...testItems[0]} />
+          <Item handleOpen={handleOpen} {...testItems[0]} />
         </CartProvider>
       )
     );

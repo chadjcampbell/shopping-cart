@@ -1,6 +1,5 @@
 import { Button, Card } from "react-bootstrap";
 import { formatCurrency } from "../utilities/formatCurrency";
-import { StoreItem } from "../pages/Shop";
 import { motion } from "framer-motion";
 import AddToCartArea from "./AddToCartArea";
 
