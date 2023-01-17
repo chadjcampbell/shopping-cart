@@ -26,7 +26,7 @@ export default function Contact() {
           >
             <Col className="mt-3 shadow">
               <Card className="mx-auto">
-                <img src="../public/fakemap.jpg" />
+                <img src="./fakemap.jpg" />
               </Card>
             </Col>
           </motion.div>

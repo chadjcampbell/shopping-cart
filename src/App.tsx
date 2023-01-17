@@ -20,7 +20,7 @@ export default function App() {
     <div
       className="min-vh-100"
       style={{
-        backgroundImage: 'url("../public/cupcakes.jpg")',
+        backgroundImage: 'url("./cupcakes.jpg")',
       }}
     >
       <CartProvider items={items}>
