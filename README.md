@@ -30,7 +30,7 @@
 
   <p align="center">
     <br />
-    <a href="https://chadjcampbell.github.io/shopping-cart/">View Demo</a>
+    <a href="https://chadjcampbell.github.io/shopping-cart/"><strong>View Demo</strong></a>
     ·
     <a href="https://github.com/chadjcampbell/shopping-cart/issues">Report Bug</a>
     ·
